@@ -1,0 +1,4 @@
+__pycache__/
+static/models/*
+.python-version
+db.sqlite3
