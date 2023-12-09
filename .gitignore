@@ -1,4 +1,21 @@
+# os
+[Dd]esktop.ini
+Thumbs.db
+.DS_Store
+
+# temp
+~*
+*.tmp
+
+# ide
+.vscode/
+.idea/
+
+# python
+venv/
 __pycache__/
-static/models/*
 .python-version
+
+# model/db
 db.sqlite3
+static/models/*
