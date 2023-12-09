@@ -8,5 +8,5 @@ app = Celery(
     'celery_app',
     broker=BROKER_URI,
     backend=BACKEND_URI,
-    include=['celery_task_app.tasks']
+    include=['worker.tasks']
 )
