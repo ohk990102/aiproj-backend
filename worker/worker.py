@@ -10,3 +10,9 @@ app = Celery(
     backend=BACKEND_URI,
     include=['worker.tasks']
 )
+
+def main():
+    app.worker_main(argv=['worker', '--loglevel=info'])
+    
+if __name__ == '__main__':
+    main()

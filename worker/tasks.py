@@ -6,8 +6,3 @@ from worker.worker import app
 def generate_text_task():
     return 'Hello World!'
 
-def main():
-    app.worker_main(argv=['worker', '--loglevel=info'])
-    
-if __name__ == '__main__':
-    main()
