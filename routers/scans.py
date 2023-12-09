@@ -1,15 +1,14 @@
 from fastapi import APIRouter, HTTPException
 
-from models.db import Model, Scan, db_session
+from models.db import db_session, Model, Scan
 
-router = APIRouter(
-    prefix='/scans',
-    tags=['scans']
-)
+router = APIRouter(prefix="/scans", tags=["scans"])
+
 
 @router.get("/")
 def get_scans():
     return {"status": "success", "result": Scan.query.all()}
+
 
 @router.post("/new")
 def new_scan(model_id: str):

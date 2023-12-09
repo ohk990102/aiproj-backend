@@ -1,10 +1,16 @@
 import datetime
-from sqlalchemy import Column, UUID, DateTime, ForeignKey, Integer, String
-from sqlalchemy.orm import DeclarativeBase
 import uuid
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy import (
+    Column,
+    create_engine,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    UUID,
+)
+from sqlalchemy.orm import DeclarativeBase, scoped_session, sessionmaker
 
 engine = create_engine("sqlite:///db.sqlite3")
 
@@ -16,12 +22,15 @@ class Base(DeclarativeBase):
     __abstract__ = True
 
     query = db_session.query_property()
-    
+
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
+    updated_at = Column(
+        DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow
+    )
 
     def __repr__(self):
         return f"<{self.__class__.__name__} {self.id}>"
+
 
 class Model(Base):
     __tablename__ = "models"
@@ -29,6 +38,7 @@ class Model(Base):
     id = Column(String, primary_key=True, default=uuid.uuid4)
     name = Column(String)
     size = Column(Integer)
+
 
 class Scan(Base):
     __tablename__ = "scans"

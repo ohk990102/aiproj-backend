@@ -1,5 +1,6 @@
-import math
 import datetime
+import math
+
 
 def convert_size(size_bytes: int):
     if size_bytes == 0:
@@ -9,6 +10,7 @@ def convert_size(size_bytes: int):
     p = math.pow(1024, i)
     s = round(size_bytes / p, 2)
     return "%s %s" % (s, size_name[i])
+
 
 def convert_datetime(date: datetime.datetime):
     return date.strftime("%Y-%m-%d %H:%M:%S")
